@@ -4,8 +4,13 @@ class TaskTile extends StatelessWidget {
   final bool isChecked;
   final String title;
   final Function checkboxCallback;
+  final Function longPressCallback;
 
-  TaskTile({this.title, this.isChecked, this.checkboxCallback});
+  TaskTile(
+      {this.title,
+      this.isChecked,
+      this.checkboxCallback,
+      this.longPressCallback});
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +25,7 @@ class TaskTile extends StatelessWidget {
         value: isChecked ? true : false,
         onChanged: checkboxCallback,
       ),
+      onLongPress: longPressCallback,
     );
   }
 }
